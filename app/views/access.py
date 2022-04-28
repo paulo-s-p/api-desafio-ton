@@ -7,10 +7,10 @@ from ..models.serealizer import access_share_schema
 def get_all_access():
     access = Access.query.get(1)
     if not access:
-        return jsonify({'message': 'Não esxite acessos realizados a está página', 'data': []}), 404
+        return 0
     if access:
         result = access_share_schema.dump(access)
-        return jsonify({'message': 'Quantidade de acessos realizados', 'data': result}), 200
+        return jsonify({'message': 'retornado com sucesso','data': result})
 
 
 def register_access():
@@ -29,4 +29,4 @@ def register_access():
             db.session.add(access)
             db.session.commit()
     except: 
-        return print('saida inválida')
+        return 'saida inválida'

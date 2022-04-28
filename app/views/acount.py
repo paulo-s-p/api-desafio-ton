@@ -1,3 +1,4 @@
+from urllib import response
 from flask import request, jsonify
 from app.models.models import Account, db
 from app.models.serealizer import account_share_schema, account_share_schema
@@ -27,9 +28,10 @@ def get_account_title(title):
 
 
 def register_account():
-    title = request.json['title']
-    value = request.json['value']
-    author_id = request.json['author_id']
+    response = request.form.to_dict()
+    title = response['title']
+    value = response['value']
+    author_id = response['id_user']
 
     account = Account(
         title,
@@ -53,7 +55,7 @@ def register_account():
 def update_account(id):
     title = request.json['title']
     value = request.json['value']
-    author_id = request.json['author_id']
+    author_id = request.json['id_user']
 
     account = Account.query.get(id)
 

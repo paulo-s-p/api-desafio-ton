@@ -1,6 +1,6 @@
+from flask import render_template
 from app.routes import bp_routes
 from app.views import access
-
 
 @bp_routes.route('/api/get-access', methods=['GET'])
 def get_all_access():

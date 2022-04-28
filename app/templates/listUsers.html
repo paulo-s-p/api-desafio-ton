@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% block content %}
+<div align="center">
+    <h1>Usuários Cadastrados</h1>
+        <table>
+            <tr>
+              <th>Nome</th>
+              <th>Sobrenome</th>
+              <th>E-mail</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+              <td>{{user.firstName}}</td>
+              <td>{{user.lastName}}</td>
+              <td>{{user.email}}</td>
+            </tr>
+            {% endfor %}
+            
+          </table>
+</div>
+{% endblock %}

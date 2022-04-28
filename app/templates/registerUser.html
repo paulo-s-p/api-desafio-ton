@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% block content %}
+<div align="center">
+    <h1>Cadastro de Usuário</h1>
+    <form action="{{url_for('routes.register_user')}}" , method="post">
+
+        <p>
+            Primeiro Nome: {{form.firstName(size=40)}} <br>
+        </p>
+        <p>
+            Segundo Nome: {{form.lastName(size=40)}} <br>
+        </p>
+        <p>
+            E-mail: {{form.email(size=27)}} <br>
+        </p>
+        <p>
+            Senha: {{form.password(size=27)}} <br>
+        </p>
+        <p> {{form.submit()}} </p>
+    </form>
+</div>
+{% endblock %}

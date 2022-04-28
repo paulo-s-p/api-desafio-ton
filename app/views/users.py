@@ -1,8 +1,10 @@
+from urllib import response
 from werkzeug.security import generate_password_hash
-from flask import request, jsonify
+from flask import redirect, render_template, request, jsonify
 from ..models.models import Users, db
 from ..models.serealizer import user_share_schema, users_share_schema
 from ..views import access
+
 
 
 def get_users():
@@ -26,10 +28,12 @@ def get_user_email(email):
 
 
 def register_user():
-    email = request.json['email']
-    password = request.json['password']
-    firstName = request.json['firstName']
-    lastName = request.json['lastName']
+    response = request.form.to_dict()
+
+    email = response['email']
+    password = response['password']
+    firstName = response['firstName']
+    lastName = response['lastName']
     pass_hash = generate_password_hash(password)
     user = Users(
         email,
@@ -43,13 +47,10 @@ def register_user():
         return jsonify({'nessage': 'email já cadastrado', 'data': {}}), 404
 
     try:
-
-        
         db.session.add(user)
-        
         db.session.commit()
         result = user_share_schema.dump(user)
-        return jsonify({'message': 'Usuário registrado com sucesso', 'data': result}), 201
+        return jsonify({'message': 'Postagem registrada com sucesso', 'data': result}), 201
     except:
         return jsonify({'message': 'Não foi possível registrar o usuário', 'data': {}}), 500
 

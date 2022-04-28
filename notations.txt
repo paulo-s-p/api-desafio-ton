@@ -12,7 +12,8 @@ from .routes import routes
 export FLASK_APP=app.py
 export FLASK_ENV=development
 export FLASK_DEBUG=True
-flask run
+flask run ou python -m flask run
+
 
 *** Gerar o banco de dados
 flask db init
