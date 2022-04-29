@@ -8,7 +8,7 @@ from .models.serealizer import configure as config_ma
 def create_app():  # config_env_var='FLASK_CONFIG'
     app = Flask(__name__)
     # app.config.from_envvar(config_env_var, silent=False)
-    app.config.from_pyfile("development.cfg")
+    app.config.from_pyfile("production.cfg")
     
     config_db(app)
     config_ma(app)
