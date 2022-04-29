@@ -12,7 +12,9 @@
     <div align="center">
         <h1>API - Desafio TON</h1>
         <div>
-            <menu>
+            <menu type="toolbar">
+                
+                <menuitem ><a href="{{url_for('routes.initial')}}">Home</a></menuitem>
                 <menuitem><a href="{{url_for('routes.user_register')}}">Cadastrar Usuário</a></menuitem>
                 <menuitem><a href="{{url_for('routes.list_users')}}">Visualizar Usuários</a></menuitem>
                 <menuitem><a href="{{url_for('routes.account_register')}}">Cadastrar Conta</a></menuitem>

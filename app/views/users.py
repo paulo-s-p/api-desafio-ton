@@ -50,7 +50,7 @@ def register_user():
         db.session.add(user)
         db.session.commit()
         result = user_share_schema.dump(user)
-        return jsonify({'message': 'Postagem registrada com sucesso', 'data': result}), 201
+        return redirect('/')
     except:
         return jsonify({'message': 'Não foi possível registrar o usuário', 'data': {}}), 500
 
